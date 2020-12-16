@@ -18,23 +18,12 @@ set encoding=utf-8
 set showmatch
 set sw=2
 set relativenumber
-set cursorline
-set termguicolors
-set linebreak
-set noshowmode
-set noswapfile
-set nobackup
-set incsearch
-set ignorecase
-set nohlsearch
 let mapleader = " "
 set laststatus=2
 set backspace=2
 set guioptions-=T
 set guioptions-=L
-" set bg=light
-set bg=dark
-"Get out of insert mode white
+"Get out of insert mode 
 "Salir de modo insertar
 imap jk <Esc>
 imap <C-c> <Esc>l
@@ -56,9 +45,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'rakr/vim-one'
-Plug 'ayu-theme/ayu-vim'
-Plug 'jeffkreeftmeijer/vim-dim'
 " "IDE
 Plug 'easymotion/vim-easymotion'
  "Nerdtree
@@ -79,12 +65,6 @@ Plug 'alvan/vim-closetag'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim',
 
-
-"Pdf Reader for Vim
-Plug 'makerj/vim-pdf'
-
-"Kotlin for Vim
-Plug 'dalov/kotlin-vim'
 call plug#end()
 
 source $HOME/AppData/Local/nvim/plugins/plug-config.vim
@@ -103,9 +83,10 @@ nmap <leader>gs  :CocSearch
 nmap <leader>fs :FZF<CR>
 nmap <leader>rg :Rg<CR>
 
+
 "abrir Nerdtree
 "open nerdtree
-map <C-n> :NERDTreeFind<CR>
+nmap <Leader>nt :NERDTreeFind<CR>
 "Buscar dos carácteres con easymotion
 "Search for two chars with easymotion
 nmap <Leader>s <Plug>(easymotion-s2)
@@ -120,47 +101,42 @@ nnoremap <silent> <S-TAB> :bprevious<CR>
 "cerrar buffer
 nmap <leader>bd :bdelete<CR>
 "--gruvbox config--
-"colorscheme gruvbox
-"let g:gruvbox_contrast_dark = "medium"
-"highlight Normal ctermbg=234
-
-
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = "medium"
+highlight Normal ctermbg=234
 set laststatus=2
+set noshowmode
+
+
+"LightLine Config
+let g:lightline.colorscheme = 'gruvbox'
+let g:lightline = {
+      \ 'active': {
+      \   'left': [['mode', 'paste'], [], ['relativepath', 'modified']],
+      \   'right': [['kitestatus'], ['filetype', 'percent', 'lineinfo'], ['gitbranch']]
+      \ },
+      \ 'inactive': {
+      \   'left': [['inactive'], ['relativepath']],
+      \   'right': [['bufnum']]
+      \ },
+      \ 'component': {
+      \   'bufnum': '%n',
+      \   'inactive': 'inactive'
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head',
+      \   'kitestatus': 'kite#statusline'
+      \ },
+      \ 'colorscheme': 'gruvbox',
+      \ 'subseparator': {
+      \   'left': '',
+      \   'right': ''
+      \ }
+      \}
+
 "Close tags automatically
 "Cerrar tags automaticamente
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.jsx, *.js'
 "-----------------------------------------------------------------
-" air-line
-let g:airline_powerline_fonts = 1
-let g:airline_theme='gruvbox'
-colorscheme gruvbox
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-let g:airline#extensions#branch#enabled = 1
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
 
