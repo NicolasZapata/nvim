@@ -32,8 +32,13 @@ set laststatus=2
 set backspace=2
 set guioptions-=T
 set guioptions-=L
+<<<<<<< HEAD
+set bg=light
+set shell=wsl
+=======
 " set bg=light
 set bg=dark
+>>>>>>> b76c98967dfdc4b7fe7136fcabb72fc4b4209551
 "Get out of insert mode white
 "Salir de modo insertar
 imap jk <Esc>
@@ -103,12 +108,23 @@ nmap <leader>gs  :CocSearch
 nmap <leader>fs :FZF<CR>
 nmap <leader>rg :Rg<CR>
 
+<<<<<<< HEAD
+" Create Blank Newlines and stay in Normal mode
+nnoremap <silent> zj o<Esc>k
+nnoremap <silent> zk O<Esc>j
+
+=======
+>>>>>>> b76c98967dfdc4b7fe7136fcabb72fc4b4209551
 "abrir Nerdtree
 "open nerdtree
 map <C-n> :NERDTreeFind<CR>
 "Buscar dos carácteres con easymotion
 "Search for two chars with easymotion
 nmap <Leader>s <Plug>(easymotion-s2)
+
+" Borrar palabras de frente con ctrl + o
+inoremap <C-o> <C-o>dw
+
 
 " TAB in general mode will move to text buffer
 " TAB en modo normal se moverá al siguiente buffer
@@ -119,11 +135,14 @@ nnoremap <silent> <S-TAB> :bprevious<CR>
 "close buffer
 "cerrar buffer
 nmap <leader>bd :bdelete<CR>
+<<<<<<< HEAD
+=======
 "--gruvbox config--
 "colorscheme gruvbox
 "let g:gruvbox_contrast_dark = "medium"
 "highlight Normal ctermbg=234
 
+>>>>>>> b76c98967dfdc4b7fe7136fcabb72fc4b4209551
 
 set laststatus=2
 "Close tags automatically
@@ -132,8 +151,13 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.jsx, *.js'
 "-----------------------------------------------------------------
 " air-line
 let g:airline_powerline_fonts = 1
+<<<<<<< HEAD
+let g:airline_theme='one'
+colorscheme one
+=======
 let g:airline_theme='gruvbox'
 colorscheme gruvbox
+>>>>>>> b76c98967dfdc4b7fe7136fcabb72fc4b4209551
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
