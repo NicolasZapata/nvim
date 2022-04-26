@@ -1,11 +1,6 @@
-"██╗███╗░░██╗██╗████████╗░░░██╗░░░██╗██╗███╗░░░███╗
-"█║████╗░██║██║╚══██╔══╝░░░██║░░░██║██║████╗░████║
-"██║██╔██╗██║██║░░░██║░░░░░░╚██╗░██╔╝██║██╔████╔██║
-"██║██║╚████║██║░░░██║░░░░░░░╚████╔╝░██║██║╚██╔╝██║
-"██║██║░╚███║██║░░░██║░░░██╗░░╚██╔╝░░██║██║░╚═╝░██║
-"╚═╝╚═╝░░╚══╝╚═╝░░░╚═╝░░░╚═╝░░░╚═╝░░░╚═╝╚═╝░░░░░╚═╝
-"𝕓𝕪 𝕁𝕠𝕒𝕢𝕦𝕚𝕟 𝕍𝕒𝕣𝕖𝕝𝕒 𝕐𝕋               
-"https://www.youtube.com/channel/UCw1Ipy5_P1OL0zUJMfYC7-A					    
+"By: Joaquin Varela
+"Versión de vimrc: Nicolás Zapata
+"https://www.youtube.com/channel/UCw1Ipy5_P1OL0zUJMfYC7-A"
 
 "---------------------------------vim config----------------------------
 syntax on
@@ -32,13 +27,8 @@ set laststatus=2
 set backspace=2
 set guioptions-=T
 set guioptions-=L
-<<<<<<< HEAD
 set bg=light
 set shell=wsl
-=======
-" set bg=light
-set bg=dark
->>>>>>> b76c98967dfdc4b7fe7136fcabb72fc4b4209551
 "Get out of insert mode white
 "Salir de modo insertar
 imap jk <Esc>
@@ -58,13 +48,14 @@ vnoremap > >gv
 call plug#begin('~/.vim/plugged')
 " Temas
 " Themes
-Plug 'morhetz/gruvbox'
-Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'rakr/vim-one'
-Plug 'ayu-theme/ayu-vim'
 Plug 'jeffkreeftmeijer/vim-dim'
 " "IDE
+
+"" Vim - devicons
+Plug 'ryanoasis/vim-devicons'
+
 Plug 'easymotion/vim-easymotion'
  "Nerdtree
 Plug 'preservim/nerdtree'
@@ -83,13 +74,9 @@ Plug 'alvan/vim-closetag'
 "FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim',
-
-
 "Pdf Reader for Vim
 Plug 'makerj/vim-pdf'
 
-"Kotlin for Vim
-Plug 'dalov/kotlin-vim'
 call plug#end()
 
 source $HOME/AppData/Local/nvim/plugins/plug-config.vim
@@ -108,13 +95,10 @@ nmap <leader>gs  :CocSearch
 nmap <leader>fs :FZF<CR>
 nmap <leader>rg :Rg<CR>
 
-<<<<<<< HEAD
 " Create Blank Newlines and stay in Normal mode
 nnoremap <silent> zj o<Esc>k
 nnoremap <silent> zk O<Esc>j
 
-=======
->>>>>>> b76c98967dfdc4b7fe7136fcabb72fc4b4209551
 "abrir Nerdtree
 "open nerdtree
 map <C-n> :NERDTreeFind<CR>
@@ -135,14 +119,6 @@ nnoremap <silent> <S-TAB> :bprevious<CR>
 "close buffer
 "cerrar buffer
 nmap <leader>bd :bdelete<CR>
-<<<<<<< HEAD
-=======
-"--gruvbox config--
-"colorscheme gruvbox
-"let g:gruvbox_contrast_dark = "medium"
-"highlight Normal ctermbg=234
-
->>>>>>> b76c98967dfdc4b7fe7136fcabb72fc4b4209551
 
 set laststatus=2
 "Close tags automatically
@@ -151,13 +127,8 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.jsx, *.js'
 "-----------------------------------------------------------------
 " air-line
 let g:airline_powerline_fonts = 1
-<<<<<<< HEAD
 let g:airline_theme='one'
 colorscheme one
-=======
-let g:airline_theme='gruvbox'
-colorscheme gruvbox
->>>>>>> b76c98967dfdc4b7fe7136fcabb72fc4b4209551
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
