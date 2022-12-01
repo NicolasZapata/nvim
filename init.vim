@@ -2,14 +2,13 @@
 "Versión de vimrc: Nicolás Zapata
 "https://www.youtube.com/channel/UCw1Ipy5_P1OL0zUJMfYC7-A"
 
-"---------------------------------vim config----------------------------
 syntax on
 set number
 set mouse=a
 set clipboard=unnamed
-set showcmd
 set ruler
 set encoding=utf-8
+set modifiable
 set showmatch
 set sw=2
 set relativenumber
@@ -29,6 +28,9 @@ set guioptions-=T
 set guioptions-=L
 set bg=light
 set shell=wsl
+
+
+"---------------------------------vim config----------------------------
 "Get out of insert mode white
 "Salir de modo insertar
 imap jk <Esc>
@@ -51,10 +53,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'rakr/vim-one'
 Plug 'jeffkreeftmeijer/vim-dim'
-" "IDE
-
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 "" Vim - devicons
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
 
 Plug 'easymotion/vim-easymotion'
  "Nerdtree
@@ -62,9 +63,10 @@ Plug 'preservim/nerdtree'
 "Navigate with C-h C-l C-j C-k
 "Navegar con C-h C-l C-j C-k
 Plug 'christoomey/vim-tmux-navigator'
-"Airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+
+" LightLine
+Plug 'itchyny/lightline.vim'
+
 " Stable version of coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Close pairs () [] {} ''
@@ -101,14 +103,13 @@ nnoremap <silent> zk O<Esc>j
 
 "abrir Nerdtree
 "open nerdtree
-map <C-n> :NERDTreeFind<CR>
+map <leader>t :NERDTreeFind<CR>
 "Buscar dos carácteres con easymotion
 "Search for two chars with easymotion
 nmap <Leader>s <Plug>(easymotion-s2)
 
 " Borrar palabras de frente con ctrl + o
 inoremap <C-o> <C-o>dw
-
 
 " TAB in general mode will move to text buffer
 " TAB en modo normal se moverá al siguiente buffer
@@ -125,37 +126,22 @@ set laststatus=2
 "Cerrar tags automaticamente
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.jsx, *.js'
 "-----------------------------------------------------------------
-" air-line
-let g:airline_powerline_fonts = 1
-let g:airline_theme='one'
+
+" Lightline
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
 colorscheme one
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
 
-let g:airline#extensions#branch#enabled = 1
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+lua require('basic')
+lua require('settings')
 
